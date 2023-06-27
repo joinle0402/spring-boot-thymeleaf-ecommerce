@@ -2,12 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
-    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Admin Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Admin</title>
+    <div th:replace="~{/admin/fragments/styles}"></div>
 </head>
-<body>
-    <div th:replace="/admin/fragments/header"></div>
-    <h1>I am Content!</h1>
-    <div th:replace="/admin/fragments/footer"></div>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+
+    <div th:replace="~{/admin/fragments/header}"></div>
+
+    <div th:replace="~{/admin/fragments/sidebar}"></div>
+
+    <div class="content-wrapper">
+        <div layout:fragment="content"></div>
+    </div>
+
+    <div th:replace="~{/admin/fragments/footer}"></div>
+</div>
+
+<div th:replace="~{/admin/fragments/scripts}"></div>
 </body>
 </html>
